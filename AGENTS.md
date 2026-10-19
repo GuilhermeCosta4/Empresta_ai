@@ -9,7 +9,8 @@ O que pode ser verificado hoje neste repositório:
 - existe um ADR em `docs/adr/001-stack.md`;
 - existem regras de limite em `rules/restrictions.md`;
 - há um checklist de integridade em `rules/checks.md`;
-- a estrutura atual do workspace é documental e de configuração.
+- existe uma spec de catálogo em `docs/specs/catalogo/`;
+- existe um scaffold Next.js com TypeScript, Tailwind CSS e App Router em `src/app/`.
 
 Este arquivo é a regra de operação do agente para este repositório. O que não puder ser verificado neste workspace não deve entrar aqui.
 
@@ -52,8 +53,11 @@ Os comandos abaixo foram executados neste repositório e podem ser citados com s
 - `git status --short` — mostra mudanças e arquivos não rastreados no diretório atual.
 - `git diff --check` — valida whitespace e problemas básicos de patch.
 - `Get-ChildItem -Force -Recurse -File` — lista os arquivos existentes no workspace verificado.
+- `npm run build` — compila o scaffold Next.js para produção.
+- `npm run lint` — executa ESLint.
+- `npm run typecheck` — executa TypeScript sem gerar arquivos.
 
-Nenhum comando de build, teste, execução ou servidor foi verificado para a aplicação neste repositório. Se não houver evidência real no workspace, o agente não escreve comando de execução para a aplicação.
+Os três comandos da aplicação acima passaram no scaffold atual. Não há comando de teste configurado ou verificado. Para usar npm, Node.js 20.9 ou superior precisa estar disponível.
 
 ## Mapa de diretórios
 
@@ -63,16 +67,24 @@ Os diretórios e arquivos existentes hoje no workspace verificado são:
   - `docs/PRD.md`
   - `docs/adr/`
     - `docs/adr/001-stack.md`
+  - `docs/specs/catalogo/`
+    - `spec.md`
+    - `plano.md`
+    - `tarefas.md`
 - `rules/`
   - `rules/restrictions.md`
   - `rules/checks.md`
+- `src/app/`
+  - `layout.tsx`
+  - `page.tsx`
+  - `globals.css`
+- `public/images/equipment/` — fotos locais dos equipamentos demonstrativos.
 - Arquivos de raiz:
   - `.env`
   - `.env.example`
   - `.gitignore`
   - `AGENTS.md`
-
-Não há pasta de código, pasta de app, pasta `src`, `app`, `server`, `tests` ou comando de execução verificado neste repositório hoje.
+- Configuração da aplicação: `package.json`, `package-lock.json`, `tsconfig.json`, `next.config.ts`, `postcss.config.mjs`, `eslint.config.mjs` e `components.json`.
 
 ## Convenções não óbvias
 
@@ -88,19 +100,20 @@ Estas são as regras que são fáceis de errar se o agente "chutar" sem olhar o 
 
 ## Como testar
 
-O estado verificado hoje não inclui aplicação, frontend, backend, testes de app ou comando de execução. Portanto, o teste válido neste repositório é o que foi executado diretamente no workspace:
+O scaffold atual não tem testes de aplicação configurados. Os checks executáveis verificados são:
 
 - `git status --short`
 - `git diff --check`
-- listagem de arquivos com `Get-ChildItem -Force -Recurse -File`
+- `npm run lint`
+- `npm run typecheck`
+- `npm run build`
 
-Se um novo código ou comando de execução aparecer no repositório, essa seção deve ser atualizada com os comandos reais que forem executados e validados naquela nova estrutura.
 
 ## Estado atual do projeto
 
-O estado verificado do repositório hoje é documental e de configuração. Não há código de aplicação confirmado no workspace, e também não há comando de build, teste ou execução de app verificado.
+O estado verificado inclui documentação e uma demonstração front-end com entrada visual e catálogo responsivo. Busca, filtros e pedidos demonstrativos funcionam localmente. Não há autenticação real, backend, testes de aplicação ou persistência de empréstimos.
 
-A seção de execução e implementação será preenchida quando houver código e comandos reais, executados e confirmados neste repositório.
+O protótipo de entrada e catálogo segue `docs/specs/catalogo/`.
 
 Este arquivo não inventa implementação, comando ou arquitetura que não possam ser verificados neste repositório hoje.
 
@@ -113,3 +126,13 @@ Este arquivo não inventa implementação, comando ou arquitetura que não possa
 - O agente não relata sucesso parcial. Se qualquer check falhar, a tarefa não está concluída.
 - O agente não decide por conta própria o que o PRD deixou ambíguo; lista as ambiguidades e espera.
 - O agente não se compromete com commit, push, deploy ou release sem autorização do usuário.
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->

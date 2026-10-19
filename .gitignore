@@ -2,3 +2,16 @@
 .env
 .env.*
 !.env.example
+
+# Next.js
+.next/
+/out/
+/build/
+next-env.d.ts
+
+# Dependencies
+/node_modules/
+
+# Local tooling
+.DS_Store
+*.tsbuildinfo

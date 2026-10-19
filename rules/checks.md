@@ -6,6 +6,16 @@ Este arquivo lista os checks mínimos que devem ser usados para validar que o re
 
 ## Checks obrigatórios
 
+### 0. Aplicação
+
+Com Node.js 20.19 ou superior e dependências instaladas, executar na raiz:
+
+- `npm run lint` — ESLint.
+- `npm run typecheck` — verificação TypeScript sem emissão.
+- `npm run build` — build Next.js de produção.
+
+Esses três comandos foram executados e passaram no scaffold atual. Não há comando de teste configurado ou verificado.
+
 ### 1. Estado de arquivos
 
 - Executar `git status --short`.
