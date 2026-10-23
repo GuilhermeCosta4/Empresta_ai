@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useState, type FormEvent, type KeyboardEvent } from "react";
 
 const equipment = [
@@ -189,130 +188,104 @@ export default function HomePage() {
 
   if (view === "login") {
     return (
-      <main className="min-h-screen bg-page p-3 text-foreground sm:p-6 lg:p-8">
-        <div className="mx-auto grid min-h-[calc(100svh-1.5rem)] max-w-7xl overflow-hidden rounded-frame border border-frame bg-background shadow-shell sm:min-h-[calc(100svh-3rem)] lg:min-h-[calc(100svh-4rem)] lg:grid-cols-2">
-          <section className="flex flex-col p-6 sm:p-10 lg:p-12">
-            <header className="flex items-center justify-between gap-4">
-              <Brand />
-              <span className="inline-flex items-center gap-2 rounded-pill border border-frame px-3 py-1.5 text-[10px] font-semibold text-muted">
-                <span className="size-1.5 rounded-pill bg-available" />
-                AMBIENTE DE DEMONSTRAÇÃO
-              </span>
-            </header>
+      <main className="min-h-svh bg-page text-foreground md:grid md:grid-cols-[36.5%_1fr]">
+        <section className="flex min-h-[300px] flex-col justify-between bg-[image:var(--gradient-login)] px-7 py-7 sm:min-h-[340px] sm:px-10 sm:py-9 md:min-h-svh md:px-[10%] md:py-[60px]">
+          <a
+            aria-label="EmpresTI início"
+            className="inline-flex w-fit items-center gap-2.5 text-[17px] font-semibold text-foreground"
+            href="#inicio"
+            onClick={(event) => event.preventDefault()}
+          >
+            <span className="grid size-[38px] place-items-center rounded-control border border-accent-700 text-accent-300">
+              <i className="ph ph-package text-[19px]" aria-hidden="true" />
+            </span>
+            EmpresTI
+          </a>
 
-            <div className="my-auto w-full max-w-md py-12 lg:py-16">
-              <div className="mb-5 flex items-center gap-2 text-[11px] font-semibold text-accent-400">
-                <span className="h-px w-6 bg-accent-500" />
-                EQUIPAMENTOS INTERNOS
+          <div className="my-12 max-w-[440px] md:my-auto md:py-16">
+            <h1 className="text-[28px] leading-[1.2] font-semibold text-foreground sm:text-[32px]">
+              Quem está com o quê
+            </h1>
+            <p className="mt-4 text-[14px] leading-6 text-muted sm:text-[15px]">
+              Pedido e devolução sem planilha.
+            </p>
+            <div className="my-6 h-px w-full bg-[linear-gradient(to_right,rgba(230,234,246,0),#222c4a_48px,#222c4a_calc(100%-48px),rgba(230,234,246,0))]" />
+            <div className="flex gap-10 sm:gap-14">
+              <div>
+                <p className="text-[24px] leading-none font-semibold text-foreground">
+                  3
+                </p>
+                <p className="mt-2 text-[12px] text-muted">itens por pessoa</p>
               </div>
-              <h1 className="max-w-[15ch] text-[34px] leading-[1.15] font-semibold text-foreground">
-                Bom trabalho começa com boas ferramentas.
-              </h1>
-              <p className="mt-4 max-w-sm text-[14px] leading-6 text-muted [text-wrap:pretty]">
-                Entre para explorar os equipamentos disponíveis para o seu
-                próximo projeto.
-              </p>
-
-              <form className="mt-8 flex flex-col gap-3" onSubmit={enterDemo}>
-                <label className="text-[12px] text-muted" htmlFor="email">
-                  E-mail de trabalho
-                </label>
-                <input
-                  autoComplete="email"
-                  className="h-[42px] rounded-control border border-strong bg-sunken px-3 text-[14px] text-foreground placeholder:text-faint focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-500"
-                  id="email"
-                  name="email"
-                  onChange={(event) => setEmail(event.target.value)}
-                  placeholder="voce@empresa.com.br"
-                  required
-                  type="email"
-                  value={email}
-                />
-
-                <div className="mt-2 flex items-baseline justify-between gap-3">
-                  <label className="text-[12px] text-muted" htmlFor="password">
-                    Senha
-                  </label>
-                  <span className="text-[12px] text-faint">
-                    Somente demonstração
-                  </span>
-                </div>
-                <input
-                  autoComplete="current-password"
-                  className="h-[42px] rounded-control border border-strong bg-sunken px-3 text-[14px] text-foreground placeholder:text-faint focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-500"
-                  id="password"
-                  name="password"
-                  placeholder="••••••••••"
-                  required
-                  type="password"
-                />
-
-                <button
-                  className="mt-3 flex h-11 items-center justify-between rounded-control border border-accent-500 bg-transparent px-4 text-[13px] font-semibold text-accent-300 transition-colors duration-[140ms] hover:bg-accent-500/12 hover:text-accent-100 active:translate-y-px active:duration-[80ms] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-500 motion-reduce:transition-none"
-                  type="submit"
-                >
-                  Entrar no catálogo
-                  <i className="ph ph-arrow-right text-[17px]" aria-hidden="true" />
-                </button>
-              </form>
-
-              <div className="my-5 flex items-center gap-3 text-[12px] text-faint">
-                <span className="h-px flex-1 bg-soft" />
-                ou
-                <span className="h-px flex-1 bg-soft" />
+              <div>
+                <p className="text-[24px] leading-none font-semibold text-foreground">
+                  14
+                </p>
+                <p className="mt-2 text-[12px] text-muted">dias de prazo</p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="flex min-h-[500px] items-center justify-center px-6 py-14 md:min-h-svh md:px-10">
+          <div className="w-full max-w-[388px]">
+            <h2 className="text-[24px] leading-[1.2] font-semibold text-foreground">
+              Entrar
+            </h2>
+            <p className="mt-2 text-[13px] text-muted">
+              E-mail e senha do convite.
+            </p>
+
+            <form className="mt-5 flex flex-col" onSubmit={enterDemo}>
+              <label className="mb-2 text-[12px] text-muted" htmlFor="email">
+                E-mail
+              </label>
+              <input
+                autoComplete="email"
+                className="h-[42px] rounded-control border border-strong bg-sunken px-3 text-[14px] text-foreground placeholder:text-faint focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-500"
+                id="email"
+                name="email"
+                onChange={(event) => setEmail(event.target.value)}
+                placeholder="nome@empresa.com"
+                required
+                type="email"
+                value={email}
+              />
+
+              <label className="mb-2 mt-5 text-[12px] text-muted" htmlFor="password">
+                Senha
+              </label>
+              <input
+                autoComplete="current-password"
+                className="h-[42px] rounded-control border border-strong bg-sunken px-3 text-[14px] text-foreground placeholder:text-faint focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-500"
+                id="password"
+                name="password"
+                placeholder="••••••••"
+                required
+                type="password"
+              />
+
               <button
-                className="flex min-h-10 w-full items-center justify-center gap-2 rounded-control border border-strong text-[13px] font-semibold text-muted transition-colors duration-[120ms] hover:border-frame hover:bg-sunken hover:text-foreground active:translate-y-px focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-500 motion-reduce:transition-none"
-                onClick={() => enterDemo()}
-                type="button"
+                className="mt-5 flex h-[46px] items-center justify-center gap-2 rounded-control border border-accent-500 bg-transparent text-[13px] font-semibold text-accent-300 transition-colors duration-[140ms] hover:bg-accent-500/12 hover:text-accent-100 active:translate-y-px active:duration-[80ms] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-500 motion-reduce:transition-none"
+                type="submit"
               >
-                Explorar sem entrar
+                Entrar
                 <i className="ph ph-arrow-right text-[16px]" aria-hidden="true" />
               </button>
-              <p className="mt-3 text-center text-[12px] text-faint">
-                Entrada visual apenas. Nenhuma credencial é verificada.
-              </p>
-            </div>
+            </form>
 
-            <footer className="flex flex-wrap justify-between gap-2 border-t border-soft pt-4 text-[10px] text-faint">
-              <span>EMPRESTAI · OPERAÇÕES INTERNAS</span>
-              <span>CATÁLOGO DE EQUIPAMENTOS</span>
-            </footer>
-          </section>
-
-          <aside
-            aria-label="Equipamentos de trabalho"
-            className="relative min-h-[340px] overflow-hidden bg-[image:var(--gradient-login)] lg:min-h-[680px]"
-          >
-            <Image
-              alt="Câmera digital pronta para um projeto criativo"
-              className="object-cover object-center"
-              fill
-              priority
-              sizes="(max-width: 1023px) 100vw, 50vw"
-              src="/images/equipment/camera.jpg"
-            />
-            <div className="absolute inset-x-5 top-5 flex items-center justify-between gap-3 sm:inset-x-7 sm:top-7">
-              <span className="rounded-pill border border-frame bg-background/90 px-3 py-1.5 text-[11px] text-foreground">
-                01 / 04
-              </span>
-              <span className="rounded-pill border border-frame bg-background/90 px-3 py-1.5 text-[11px] font-semibold text-foreground">
-                FEITO PARA COMPARTILHAR
-              </span>
-            </div>
-            <div className="absolute inset-x-5 bottom-5 sm:inset-x-7 sm:bottom-7">
-              <span className="text-[11px] font-semibold text-accent-200">
-                IDEIAS EM MOVIMENTO
-              </span>
-              <p className="mt-2 max-w-md text-[24px] leading-tight font-semibold text-white sm:text-[30px]">
-                A ferramenta certa muda o ritmo.
-              </p>
-              <span className="mt-2 block text-[12px] text-white/80">
-                Um espaço comum para criar coisas extraordinárias.
-              </span>
-            </div>
-          </aside>
-        </div>
+            <p className="mt-5 flex min-h-9 items-center justify-center rounded-control bg-[image:var(--gradient-notice)] px-3 text-center text-[11px] text-muted">
+              Sem acesso? Fale com Operações.
+            </p>
+            <button
+              className="mt-3 min-h-9 w-full text-[12px] text-faint underline-offset-4 hover:text-accent-300 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-500"
+              onClick={() => enterDemo()}
+              type="button"
+            >
+              Explorar sem entrar
+            </button>
+          </div>
+        </section>
       </main>
     );
   }
