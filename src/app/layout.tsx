@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
+import { Open_Sans } from "next/font/google";
 import "./globals.css";
+
+const openSans = Open_Sans({
+  subsets: ["latin"],
+  weight: ["400", "600"],
+  variable: "--font-open-sans",
+});
 
 export const metadata: Metadata = {
   title: "EmprestAI",
@@ -12,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
+    <html className={openSans.variable} lang="pt-BR">
       <body>{children}</body>
     </html>
   );
