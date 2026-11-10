@@ -15,3 +15,8 @@ next-env.d.ts
 # Local tooling
 .DS_Store
 *.tsbuildinfo
+
+# Test artifacts
+/test-results/
+/playwright-report/
+/coverage/

@@ -1,5 +1,7 @@
 # Spec: Login e catálogo demonstrativo
 
+**Status:** Implementada, com evidência automatizada dos critérios de aceite.
+
 ## Objetivo
 
 Definir uma experiência visual de entrada e catálogo para que uma pessoa colaboradora explore equipamentos internos e identifique a situação de cada item.
@@ -39,12 +41,12 @@ Colaboradores que precisam consultar equipamentos disponíveis para empréstimo.
 
 ## Critérios de aceite
 
-- A tela permite distinguir visualmente equipamentos disponíveis, emprestados e em manutenção.
-- O formulário de entrada abre o catálogo em modo demonstrativo, sem alegar autenticação real.
-- Somente itens disponíveis apresentam a ação de solicitação.
-- A busca e os filtros combinam corretamente sobre a lista demonstrativa.
-- Nenhuma ação da tela é apresentada como empréstimo persistido ou real.
-- O layout permanece legível em viewport desktop e mobile.
+- **CA-01:** A tela permite distinguir visualmente equipamentos disponíveis, emprestados e em manutenção.
+- **CA-02:** O formulário de entrada abre o catálogo em modo demonstrativo, sem alegar autenticação real.
+- **CA-03:** Somente itens disponíveis apresentam a ação de solicitação.
+- **CA-04:** A busca e os filtros combinam corretamente sobre a lista demonstrativa.
+- **CA-05:** Nenhuma ação da tela é apresentada como empréstimo persistido ou real.
+- **CA-06:** Em viewport desktop de 1440 × 900 px, o título do catálogo, a busca e o primeiro equipamento permanecem visíveis, sem overflow horizontal na página.
 
 ## Dependências e limites
 

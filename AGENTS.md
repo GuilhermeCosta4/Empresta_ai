@@ -2,13 +2,12 @@
 
 ## O que é o projeto
 
-Este repositório está em fase documental e de decisão inicial para o sistema de empréstimo de equipamentos internos.
+Este repositório contém a documentação de produto e arquitetura e um protótipo demonstrativo de login e catálogo para o sistema de empréstimo de equipamentos internos.
 
 O que pode ser verificado hoje neste repositório:
 - existe um documento de negócio em `docs/PRD.md`;
-- existe um ADR em `docs/adr/001-stack.md`;
-- existem regras de limite em `rules/restrictions.md`;
-- há um checklist de integridade em `rules/checks.md`;
+- existem decisões registradas em `docs/adr/`;
+- existem regras operacionais em `rules/`;
 - existe uma spec de catálogo em `docs/specs/catalogo/`;
 - existe um scaffold Next.js com TypeScript, Tailwind CSS e App Router em `src/app/`.
 
@@ -17,10 +16,11 @@ Este arquivo é a regra de operação do agente para este repositório. O que n�
 ## Onde olhar
 
 - `docs/PRD.md` — documento de negócio. Não é uma spec.
-- `docs/adr/001-stack.md` — decisões técnicas já registradas e o motivo delas.
-- `rules/restrictions.md` — limites do que o agente pode fazer.
-- `rules/checks.md` — lista dos checks verificados do repositório atual.
-- `docs/specs/` — quando existir, deve conter uma pasta por funcionalidade, com spec, plano e tarefas.
+- `docs/adr/` — decisões técnicas e visuais já registradas e seus motivos.
+- `rules/` — limites, procedimentos e checks do repositório; leia apenas as regras relevantes à tarefa.
+- `docs/specs/` — uma pasta por funcionalidade, contendo spec e, quando a implementação avançar, plano e tarefas.
+- `skills/` — procedimentos reutilizáveis do projeto; está vazia enquanto não houver uma necessidade concreta.
+- `agents/` — fonte versionável das instruções dos subagentes do projeto.
 
 ## Precedência
 
@@ -46,18 +46,27 @@ Se algo não estiver em lugar nenhum, pergunte e espere. Não decida por conta p
 - Se uma mudança sair do escopo pedido, pare e peça autorização antes de continuar.
 - Se uma decisão nova foi tomada durante a tarefa, ela deve ser revisada com o ADR e com o PRD antes de virar regra de implementação.
 
+## Subagentes
+
+- Ficam em `agents/<nome>.md`. O frontmatter diz quando delegar; o corpo é a instrução completa do subagente.
+- Subagente não herda esta conversa: ao delegar, passe tudo que o arquivo dele pede como entrada.
+- Se o harness não tiver subagentes, abra uma sessão nova e comece com: "Aja conforme `agents/<nome>.md`." e as entradas pedidas.
+
 ## Comandos
 
 Os comandos abaixo foram executados neste repositório e podem ser citados com segurança:
 
 - `git status --short` — mostra mudanças e arquivos não rastreados no diretório atual.
 - `git diff --check` — valida whitespace e problemas básicos de patch.
-- `Get-ChildItem -Force -Recurse -File` — lista os arquivos existentes no workspace verificado.
-- `npm run build` — compila o scaffold Next.js para produção.
+- `rg --files` com exclusão de dependências e artefatos gerados — lista os arquivos relevantes do workspace.
 - `npm run lint` — executa ESLint.
 - `npm run typecheck` — executa TypeScript sem gerar arquivos.
+- `npm run test:unit` — executa os testes Vitest/Testing Library.
+- `npm run test:e2e` — executa os testes Playwright em Chromium.
+- `npm test` — executa as duas suítes em sequência.
+- `npm run build` — compila o scaffold Next.js para produção.
 
-Os três comandos da aplicação acima passaram no scaffold atual. Não há comando de teste configurado ou verificado. Para usar npm, Node.js 20.9 ou superior precisa estar disponível.
+Os comandos da aplicação acima passaram no protótipo atual. Para usar npm, Node.js 20.9 ou superior precisa estar disponível; o Chromium do Playwright deve ser instalado com `npx playwright install chromium` no ambiente local.
 
 ## Mapa de diretórios
 
@@ -67,24 +76,41 @@ Os diretórios e arquivos existentes hoje no workspace verificado são:
   - `docs/PRD.md`
   - `docs/adr/`
     - `docs/adr/001-stack.md`
+    - `docs/adr/002-direcao-visual.md`
   - `docs/specs/catalogo/`
     - `spec.md`
     - `plano.md`
     - `tarefas.md`
+  - `docs/specs/persistencia/`
+    - `spec.md`
 - `rules/`
   - `rules/restrictions.md`
   - `rules/checks.md`
+  - `rules/handoff.md`
+  - `rules/migration.md`
+  - `rules/operacao.md`
+  - `rules/secrets.md`
+  - `rules/spec-flow.md`
+  - `rules/tests.md`
+- `agents/`
+  - `agents/verificador-spec.md` — fonte do verificador de specs integrado ao fluxo.
+- `.codex/agents/`
+  - `.codex/agents/verificador-spec.toml` — derivação da fonte para o Codex.
+- `skills/` — sem skills no estado atual.
 - `src/app/`
   - `layout.tsx`
   - `page.tsx`
+  - `page.test.tsx`
   - `globals.css`
+- `e2e/`
+  - `e2e/catalogo.spec.ts`
 - `public/images/equipment/` — fotos locais dos equipamentos demonstrativos.
 - Arquivos de raiz:
   - `.env`
   - `.env.example`
   - `.gitignore`
   - `AGENTS.md`
-- Configuração da aplicação: `package.json`, `package-lock.json`, `tsconfig.json`, `next.config.ts`, `postcss.config.mjs`, `eslint.config.mjs` e `components.json`.
+- Configuração da aplicação e dos testes: `package.json`, `package-lock.json`, `tsconfig.json`, `next.config.ts`, `postcss.config.mjs`, `eslint.config.mjs`, `components.json`, `vitest.config.mts`, `vitest.setup.ts` e `playwright.config.ts`.
 
 ## Convenções não óbvias
 
@@ -100,18 +126,20 @@ Estas são as regras que são fáceis de errar se o agente "chutar" sem olhar o 
 
 ## Como testar
 
-O scaffold atual não tem testes de aplicação configurados. Os checks executáveis verificados são:
+Os checks executáveis verificados são:
 
 - `git status --short`
 - `git diff --check`
 - `npm run lint`
 - `npm run typecheck`
+- `npm run test:unit`
+- `npm run test:e2e`
 - `npm run build`
 
 
 ## Estado atual do projeto
 
-O estado verificado inclui documentação e uma demonstração front-end com entrada visual e catálogo responsivo. Busca, filtros e pedidos demonstrativos funcionam localmente. Não há autenticação real, backend, testes de aplicação ou persistência de empréstimos.
+O estado verificado inclui documentação e uma demonstração front-end desktop com entrada visual e catálogo. Busca, filtros e pedidos demonstrativos funcionam localmente e possuem testes por critério de aceite. Não há autenticação real, backend ou persistência de empréstimos.
 
 O protótipo de entrada e catálogo segue `docs/specs/catalogo/`.
 

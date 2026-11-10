@@ -8,13 +8,15 @@ Este arquivo lista os checks mínimos que devem ser usados para validar que o re
 
 ### 0. Aplicação
 
-Com Node.js 20.19 ou superior e dependências instaladas, executar na raiz:
+Com Node.js 20.9 ou superior e dependências instaladas, executar na raiz:
 
 - `npm run lint` — ESLint.
 - `npm run typecheck` — verificação TypeScript sem emissão.
+- `npm run test:unit` — Vitest e Testing Library para os critérios funcionais do catálogo.
+- `npm run test:e2e` — Playwright em Chromium para critérios de interface desktop.
 - `npm run build` — build Next.js de produção.
 
-Esses três comandos foram executados e passaram no scaffold atual. Não há comando de teste configurado ou verificado.
+Esses comandos foram executados e passaram no protótipo atual. `npm test` executa as duas suítes de teste em sequência.
 
 ### 1. Estado de arquivos
 
@@ -29,8 +31,8 @@ Esses três comandos foram executados e passaram no scaffold atual. Não há com
 
 ### 3. Verificação de arquivos presentes
 
-- Executar `Get-ChildItem -Force -Recurse -File`.
-- Confirmar que os arquivos listados correspondem ao que realmente existe no workspace.
+- Executar `rg --files`, excluindo dependências, `.git`, `.next` e outros artefatos gerados; se `rg` não estiver disponível, usar uma listagem equivalente com os mesmos filtros.
+- Confirmar que os arquivos relevantes listados correspondem ao que realmente existe no workspace.
 - Não listar pastas ou arquivos não verificados.
 
 ### 4. Proibição de afirmações sem evidência
@@ -75,4 +77,4 @@ Antes de responder como concluído, confirmar:
 - escrever comando de execução de app sem execução real no repo;
 - citar arquivos inexistentes;
 - listar pastas planejadas como se já existissem;
-- dizer que a tarefa terminou quando um check fallou.
+- dizer que a tarefa terminou quando um check falhou.

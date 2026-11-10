@@ -1,5 +1,7 @@
 # Spec: Schema inicial de persistência
 
+**Status:** Rascunho. Ainda não possui `plano.md` nem `tarefas.md` e não está autorizada para implementação.
+
 ## Objetivo
 
 Definir as tabelas necessárias para persistir tenants, memberships, equipamentos, empréstimos e auditoria na primeira versão do sistema.
@@ -47,8 +49,8 @@ As referências entre equipamentos, empréstimos e memberships devem impedir ví
 
 ## Critérios de aceite
 
-- Schema Prisma e migration SQL representam as tabelas e relações descritas.
-- Constraints e índices garantem tenant nas referências e empréstimo ativo único por equipamento.
-- RLS e policies estão presentes em migration versionada, sem depender de ajuste manual no painel.
-- Testes locais demonstram isolamento entre tenants e comportamento append-only da auditoria.
-- Nenhum segredo ou conexão remota é usado na geração ou teste local.
+- **CA-01:** Schema Prisma e migration SQL representam as tabelas e relações descritas.
+- **CA-02:** Constraints e índices garantem tenant nas referências e empréstimo ativo único por equipamento.
+- **CA-03:** RLS e policies estão presentes em migration versionada, sem depender de ajuste manual no painel.
+- **CA-04:** Testes locais demonstram isolamento entre tenants e comportamento append-only da auditoria.
+- **CA-05:** Nenhum segredo ou conexão remota é usado na geração ou teste local.

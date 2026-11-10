@@ -9,18 +9,23 @@ Este arquivo define o limite de operação para escrita e ajuste de testes no re
 - Teste não é opcional quando a tarefa toca em regra de acesso, isolamento de tenant, policy, segurança ou schema.
 - O teste deve validar o comportamento real e não apenas um mock.
 - O teste deve rodar contra banco local, nunca contra o ambiente remoto.
+- Todo critério de aceite deve ter um identificador estável no formato `CA-NN`.
+- Todo critério verificável por automação deve possuir ao menos um teste cujo nome cite o identificador do CA.
+- Critério exclusivamente visual deve ser validado por teste de interface ou inspeção visual documentada; a ausência de automação precisa ficar explícita e não pode ser apresentada como teste aprovado.
 
 ## O que precisa existir em teste
 
 - Quando a regra é de acesso ou isolamento, o teste precisa provar que um tenant não vê dado de outro tenant.
 - Quando a tarefa muda schema, o teste precisa cobrir a mudança relevante e o comportamento esperado.
 - Quando a tarefa muda regra de autorização, o teste precisa cobrir a falha e o caso permitido.
+- O nome ou a descrição do teste deve citar o `CA-NN` que ele comprova.
 
 ## O que o agente não pode fazer
 
 - escrever teste que só valida mock ou estrutura vazia;
 - testar contra banco remoto por conveniência;
-- dizer que o caso está coberto sem evidencia real de execução;
+- dizer que o caso está coberto sem evidência real de execução;
+- aprovar um CA apenas porque o código parece implementá-lo;
 - trocar a regra de produto por um teste de conveniência.
 
 ## Verificação mínima
@@ -28,6 +33,7 @@ Este arquivo define o limite de operação para escrita e ajuste de testes no re
 Antes de encerrar a tarefa, confirmar:
 
 - o teste corresponde ao comportamento real que foi alterado;
+- cada CA automatizável possui teste que cita seu identificador;
 - o ambiente de execução foi o local e não o remoto;
 - a política de acesso foi testada de forma explícita.
 
