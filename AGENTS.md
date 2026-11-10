@@ -52,6 +52,13 @@ Se algo não estiver em lugar nenhum, pergunte e espere. Não decida por conta p
 - Subagente não herda esta conversa: ao delegar, passe tudo que o arquivo dele pede como entrada.
 - Se o harness não tiver subagentes, abra uma sessão nova e comece com: "Aja conforme `agents/<nome>.md`." e as entradas pedidas.
 
+## Skills
+
+- Ficam em `skills/<nome>/SKILL.md`.
+- No início de cada tarefa, leia somente `name` e `description` de cada skill. Carregue o corpo do `SKILL.md` apenas quando a tarefa casar com a description; abra `references/` somente quando o `SKILL.md` mandar.
+- Em conflito, `rules/` e `docs/adr/` vencem qualquer skill.
+- `imagens-equipamentos` — busca, revisa, padroniza e registra imagens de equipamentos obtidas pela API do Pixabay; não publica no Supabase.
+
 ## Comandos
 
 Os comandos abaixo foram executados neste repositório e podem ser citados com segurança:
@@ -96,7 +103,13 @@ Os diretórios e arquivos existentes hoje no workspace verificado são:
   - `agents/verificador-spec.md` — fonte do verificador de specs integrado ao fluxo.
 - `.codex/agents/`
   - `.codex/agents/verificador-spec.toml` — derivação da fonte para o Codex.
-- `skills/` — sem skills no estado atual.
+- `skills/imagens-equipamentos/`
+  - `SKILL.md` — roteiro e limites do preparo de imagens.
+  - `references/revisao-visual.md` — critérios de revisão humana e publicação manual.
+  - `assets/equipamentos.json` — entrada versionada com os 12 equipamentos.
+  - `assets/revisao.json` — decisões de aprovação e rejeição de fotos.
+  - `scripts/preparar-imagens.mjs` — busca, revisão assistida e geração em 800 × 600.
+  - `scripts/validar-imagens.mjs` — valida dimensões, unicidade e créditos.
 - `src/app/`
   - `layout.tsx`
   - `page.tsx`
