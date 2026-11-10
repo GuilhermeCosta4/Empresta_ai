@@ -55,9 +55,14 @@ async function validate() {
   for (const rejection of review.rejeitadas) {
     assert(rejection.motivo?.trim(), "Toda rejeição precisa ter um motivo.");
   }
+  for (const reconsideration of review.reconsideradas ?? []) {
+    assert(reconsideration.motivo?.trim(), "Toda reconsideração precisa preservar o motivo original.");
+    assert(reconsideration.justificativa?.trim(), "Toda reconsideração precisa ter justificativa.");
+  }
 
   console.log(`OK: ${manifest.images.length} imagens únicas, em 800 × 600, com créditos completos.`);
   console.log(`Reprovações visuais registradas: ${review.rejeitadas.length}.`);
+  console.log(`Reconsiderações registradas: ${(review.reconsideradas ?? []).length}.`);
 }
 
 try {

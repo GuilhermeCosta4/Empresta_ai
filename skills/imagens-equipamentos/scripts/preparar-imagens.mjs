@@ -176,6 +176,25 @@ async function rejectCandidate(patrimonio, rawId, reasonParts) {
   console.log(`${patrimonio}: candidato ${candidate.id} rejeitado.`);
 }
 
+async function reconsiderCandidate(patrimonio, rawId, justificationParts) {
+  const candidate = await candidateFor(patrimonio, rawId);
+  const justification = justificationParts.join(" ").trim();
+  if (!justification) throw new Error("Informe uma justificativa concreta para a reconsideração.");
+  const review = await readJson(reviewPath);
+  const rejection = review.rejeitadas.find(
+    (item) => item.patrimonio === patrimonio && item.pixabayId === candidate.id,
+  );
+  if (!rejection) throw new Error("Este candidato não possui rejeição ativa.");
+
+  review.rejeitadas = review.rejeitadas.filter(
+    (item) => !(item.patrimonio === patrimonio && item.pixabayId === candidate.id),
+  );
+  review.reconsideradas ??= [];
+  review.reconsideradas.push({ ...rejection, justificativa: justification });
+  await writeJson(reviewPath, review);
+  console.log(`${patrimonio}: rejeição do candidato ${candidate.id} reconsiderada.`);
+}
+
 async function approveCandidate(patrimonio, rawId) {
   const candidate = await candidateFor(patrimonio, rawId);
   const review = await readJson(reviewPath);
@@ -257,6 +276,7 @@ function printHelp() {
   console.log(`Uso:
   npm run images:workflow -- buscar [patrimonio] [pagina] [consulta alternativa]
   npm run images:workflow -- rejeitar <patrimonio> <pixabay-id> <motivo>
+  npm run images:workflow -- reconsiderar <patrimonio> <pixabay-id> <justificativa>
   npm run images:workflow -- aprovar <patrimonio> <pixabay-id>
   npm run images:workflow -- finalizar`);
 }
@@ -266,6 +286,7 @@ const [command, patrimonio, id, ...rest] = process.argv.slice(2);
 try {
   if (command === "buscar") await searchCandidates(patrimonio, id, rest.join(" "));
   else if (command === "rejeitar") await rejectCandidate(patrimonio, id, rest);
+  else if (command === "reconsiderar") await reconsiderCandidate(patrimonio, id, rest);
   else if (command === "aprovar") await approveCandidate(patrimonio, id);
   else if (command === "finalizar") await finalizeImages();
   else printHelp();

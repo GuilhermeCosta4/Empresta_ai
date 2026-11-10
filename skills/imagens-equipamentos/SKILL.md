@@ -37,6 +37,12 @@ Esta skill executa um procedimento; ela não decide produto nem arquitetura. Em 
    npm run images:workflow -- aprovar TI-0001 <pixabay-id>
    ```
 
+   Se uma inspeção ampliada justificar rever uma rejeição, registre a justificativa antes de aprovar:
+
+   ```powershell
+   npm run images:workflow -- reconsiderar TI-0001 <pixabay-id> "justificativa"
+   ```
+
 5. Quando os 12 equipamentos estiverem aprovados, gere as imagens e o manifesto:
 
    ```powershell
@@ -55,6 +61,7 @@ Esta skill executa um procedimento; ela não decide produto nem arquitetura. Em 
 ## Não faça
 
 - Não escolha foto sem inspeção visual.
+- Não apague uma rejeição sem registrar a reconsideração e sua justificativa.
 - Não aceite pessoa, marca ou logo legível, texto ou tela com conteúdo.
 - Não repita ID do Pixabay.
 - Não use busca manual, outra API ou URL fora do resultado da API do Pixabay.

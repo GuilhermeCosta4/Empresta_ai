@@ -1,34 +1,10 @@
 {
   "aprovadas": {
-    "TI-0001": {
-      "pixabayId": 2982270,
-      "contributor": "ClickerHappy",
-      "contributorUrl": "https://pixabay.com/users/ClickerHappy-324082/",
-      "photoPageUrl": "https://pixabay.com/photos/computer-laptop-work-place-mouse-2982270/"
-    },
     "TI-0002": {
       "pixabayId": 791032,
       "contributor": "kaboompics",
       "contributorUrl": "https://pixabay.com/users/kaboompics-1013994/",
       "photoPageUrl": "https://pixabay.com/photos/technology-laptop-computer-netbook-791032/"
-    },
-    "TI-0003": {
-      "pixabayId": 4337524,
-      "contributor": "rupixen",
-      "contributorUrl": "https://pixabay.com/users/rupixen-11154019/",
-      "photoPageUrl": "https://pixabay.com/photos/pen-notebook-notepad-diary-4337524/"
-    },
-    "TI-0004": {
-      "pixabayId": 593327,
-      "contributor": "StartupStockPhotos",
-      "contributorUrl": "https://pixabay.com/users/StartupStockPhotos-690514/",
-      "photoPageUrl": "https://pixabay.com/photos/desk-laptop-notebook-pen-workspace-593327/"
-    },
-    "TI-0005": {
-      "pixabayId": 1868496,
-      "contributor": "Pexels",
-      "contributorUrl": "https://pixabay.com/users/Pexels-2286921/",
-      "photoPageUrl": "https://pixabay.com/photos/apple-computer-desk-workspace-1868496/"
     },
     "TI-0008": {
       "pixabayId": 1827,
@@ -54,23 +30,47 @@
       "contributorUrl": "https://pixabay.com/users/PublicDomainPictures-14/",
       "photoPageUrl": "https://pixabay.com/photos/blank-business-computer-desktop-17894/"
     },
-    "TI-0012": {
-      "pixabayId": 4397018,
-      "contributor": "NmewahanG",
-      "contributorUrl": "https://pixabay.com/users/NmewahanG-12356325/",
-      "photoPageUrl": "https://pixabay.com/photos/gopro-gopro-hero-7-camera-4397018/"
-    },
     "TI-0006": {
       "pixabayId": 17768,
       "contributor": "PublicDomainPictures",
       "contributorUrl": "https://pixabay.com/users/PublicDomainPictures-14/",
       "photoPageUrl": "https://pixabay.com/photos/blank-business-computer-desktop-17768/"
     },
+    "TI-0003": {
+      "pixabayId": 3659997,
+      "contributor": "athree23",
+      "contributorUrl": "https://pixabay.com/users/athree23-6195572/",
+      "photoPageUrl": "https://pixabay.com/photos/surface-book-microsoft-closed-3659997/"
+    },
+    "TI-0012": {
+      "pixabayId": 1149767,
+      "contributor": "maxmann",
+      "contributorUrl": "https://pixabay.com/users/maxmann-665103/",
+      "photoPageUrl": "https://pixabay.com/photos/cameras-old-nostalgia-vintage-1149767/"
+    },
+    "TI-0001": {
+      "pixabayId": 5720323,
+      "contributor": "kieutruongphoto",
+      "contributorUrl": "https://pixabay.com/users/kieutruongphoto-5099306/",
+      "photoPageUrl": "https://pixabay.com/photos/laptop-macbook-desk-device-5720323/"
+    },
+    "TI-0004": {
+      "pixabayId": 3659998,
+      "contributor": "athree23",
+      "contributorUrl": "https://pixabay.com/users/athree23-6195572/",
+      "photoPageUrl": "https://pixabay.com/photos/surface-book-microsoft-closed-side-3659998/"
+    },
+    "TI-0005": {
+      "pixabayId": 1140699,
+      "contributor": "theglassdesk",
+      "contributorUrl": "https://pixabay.com/users/theglassdesk-149631/",
+      "photoPageUrl": "https://pixabay.com/photos/desk-computer-modern-keyboard-1140699/"
+    },
     "TI-0011": {
-      "pixabayId": 1219748,
-      "contributor": "Aksa2011",
-      "contributorUrl": "https://pixabay.com/users/Aksa2011-2081324/",
-      "photoPageUrl": "https://pixabay.com/photos/camera-webcam-computer-internet-1219748/"
+      "pixabayId": 1163880,
+      "contributor": "willsong",
+      "contributorUrl": "https://pixabay.com/users/willsong-1891844/",
+      "photoPageUrl": "https://pixabay.com/photos/video-conference-hd-material-1163880/"
     }
   },
   "rejeitadas": [
@@ -343,11 +343,6 @@
       "patrimonio": "TI-0011",
       "pixabayId": 5817031,
       "motivo": "pessoa e tela com conteudo"
-    },
-    {
-      "patrimonio": "TI-0012",
-      "pixabayId": 2364849,
-      "motivo": "pessoa e marca legivel"
     },
     {
       "patrimonio": "TI-0012",
@@ -708,6 +703,189 @@
       "patrimonio": "TI-0011",
       "pixabayId": 2982270,
       "motivo": "equipamento errado e foto ja usada"
+    },
+    {
+      "patrimonio": "TI-0001",
+      "pixabayId": 2982270,
+      "motivo": "marca e texto visiveis na imagem ampliada"
+    },
+    {
+      "patrimonio": "TI-0003",
+      "pixabayId": 4337524,
+      "motivo": "texto legivel no teclado"
+    },
+    {
+      "patrimonio": "TI-0004",
+      "pixabayId": 593327,
+      "motivo": "texto legivel no teclado e na caneta"
+    },
+    {
+      "patrimonio": "TI-0005",
+      "pixabayId": 1868496,
+      "motivo": "marca legivel na imagem ampliada"
+    },
+    {
+      "patrimonio": "TI-0011",
+      "pixabayId": 1219748,
+      "motivo": "texto legivel na lente"
+    },
+    {
+      "patrimonio": "TI-0011",
+      "pixabayId": 5095868,
+      "motivo": "texto legivel no equipamento"
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 4397018,
+      "motivo": "marca e tela com conteudo"
+    },
+    {
+      "patrimonio": "TI-0001",
+      "pixabayId": 4759482,
+      "motivo": "equipamento errado"
+    },
+    {
+      "patrimonio": "TI-0001",
+      "pixabayId": 1734485,
+      "motivo": "marca legivel"
+    },
+    {
+      "patrimonio": "TI-0001",
+      "pixabayId": 5674995,
+      "motivo": "pessoa visivel e equipamento ausente"
+    },
+    {
+      "patrimonio": "TI-0001",
+      "pixabayId": 4996834,
+      "motivo": "pessoa e tela com conteudo"
+    },
+    {
+      "patrimonio": "TI-0001",
+      "pixabayId": 1866784,
+      "motivo": "pessoa e texto visivel"
+    },
+    {
+      "patrimonio": "TI-0003",
+      "pixabayId": 1734485,
+      "motivo": "marca legivel"
+    },
+    {
+      "patrimonio": "TI-0003",
+      "pixabayId": 3144237,
+      "motivo": "marca legivel"
+    },
+    {
+      "patrimonio": "TI-0003",
+      "pixabayId": 3144234,
+      "motivo": "marca legivel"
+    },
+    {
+      "patrimonio": "TI-0004",
+      "pixabayId": 620817,
+      "motivo": "pessoa e telas com conteudo"
+    },
+    {
+      "patrimonio": "TI-0004",
+      "pixabayId": 1734485,
+      "motivo": "marca legivel"
+    },
+    {
+      "patrimonio": "TI-0004",
+      "pixabayId": 1185626,
+      "motivo": "pessoa visivel"
+    },
+    {
+      "patrimonio": "TI-0004",
+      "pixabayId": 2838921,
+      "motivo": "pessoa e tela com conteudo"
+    },
+    {
+      "patrimonio": "TI-0004",
+      "pixabayId": 593333,
+      "motivo": "pessoa visivel"
+    },
+    {
+      "patrimonio": "TI-0004",
+      "pixabayId": 849825,
+      "motivo": "pessoa visivel"
+    },
+    {
+      "patrimonio": "TI-0005",
+      "pixabayId": 17894,
+      "motivo": "foto ja usada em outro equipamento"
+    },
+    {
+      "patrimonio": "TI-0005",
+      "pixabayId": 4375840,
+      "motivo": "marca legivel"
+    },
+    {
+      "patrimonio": "TI-0005",
+      "pixabayId": 2354948,
+      "motivo": "equipamento errado"
+    },
+    {
+      "patrimonio": "TI-0005",
+      "pixabayId": 17768,
+      "motivo": "foto ja usada em outro equipamento"
+    },
+    {
+      "patrimonio": "TI-0005",
+      "pixabayId": 1881,
+      "motivo": "equipamento errado"
+    },
+    {
+      "patrimonio": "TI-0005",
+      "pixabayId": 3368794,
+      "motivo": "marca legivel"
+    },
+    {
+      "patrimonio": "TI-0011",
+      "pixabayId": 620822,
+      "motivo": "pessoa visivel"
+    },
+    {
+      "patrimonio": "TI-0011",
+      "pixabayId": 6797470,
+      "motivo": "pessoa visivel e equipamento errado"
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 551287,
+      "motivo": "texto legivel no equipamento"
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 737114,
+      "motivo": "equipamento diferente do solicitado"
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 3672010,
+      "motivo": "pessoa visivel"
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 2364849,
+      "motivo": "pessoa e marca legivel"
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 407168,
+      "motivo": "pessoa visivel"
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 4883881,
+      "motivo": "pessoa visivel"
+    }
+  ],
+  "reconsideradas": [
+    {
+      "patrimonio": "TI-0011",
+      "pixabayId": 1163880,
+      "motivo": "marca visivel na lente",
+      "justificativa": "o selo permanece ilegivel na resolucao final e nao identifica uma marca"
     }
   ]
 }

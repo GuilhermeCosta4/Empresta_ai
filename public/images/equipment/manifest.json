@@ -1,0 +1,118 @@
+{
+  "version": 1,
+  "source": "Pixabay",
+  "sourceUrl": "https://pixabay.com/",
+  "attributionText": "Fotos: Pixabay",
+  "licenseUrl": "https://pixabay.com/service/license-summary/",
+  "generatedAt": "2026-11-10T12:17:08.649Z",
+  "images": [
+    {
+      "patrimonio": "TI-0001",
+      "filename": "TI-0001.jpg",
+      "pixabayId": 5720323,
+      "contributor": "kieutruongphoto",
+      "contributorUrl": "https://pixabay.com/users/kieutruongphoto-5099306/",
+      "photoPageUrl": "https://pixabay.com/photos/laptop-macbook-desk-device-5720323/",
+      "licenseUrl": "https://pixabay.com/service/license-summary/"
+    },
+    {
+      "patrimonio": "TI-0002",
+      "filename": "TI-0002.jpg",
+      "pixabayId": 791032,
+      "contributor": "kaboompics",
+      "contributorUrl": "https://pixabay.com/users/kaboompics-1013994/",
+      "photoPageUrl": "https://pixabay.com/photos/technology-laptop-computer-netbook-791032/",
+      "licenseUrl": "https://pixabay.com/service/license-summary/"
+    },
+    {
+      "patrimonio": "TI-0003",
+      "filename": "TI-0003.jpg",
+      "pixabayId": 3659997,
+      "contributor": "athree23",
+      "contributorUrl": "https://pixabay.com/users/athree23-6195572/",
+      "photoPageUrl": "https://pixabay.com/photos/surface-book-microsoft-closed-3659997/",
+      "licenseUrl": "https://pixabay.com/service/license-summary/"
+    },
+    {
+      "patrimonio": "TI-0004",
+      "filename": "TI-0004.jpg",
+      "pixabayId": 3659998,
+      "contributor": "athree23",
+      "contributorUrl": "https://pixabay.com/users/athree23-6195572/",
+      "photoPageUrl": "https://pixabay.com/photos/surface-book-microsoft-closed-side-3659998/",
+      "licenseUrl": "https://pixabay.com/service/license-summary/"
+    },
+    {
+      "patrimonio": "TI-0005",
+      "filename": "TI-0005.jpg",
+      "pixabayId": 1140699,
+      "contributor": "theglassdesk",
+      "contributorUrl": "https://pixabay.com/users/theglassdesk-149631/",
+      "photoPageUrl": "https://pixabay.com/photos/desk-computer-modern-keyboard-1140699/",
+      "licenseUrl": "https://pixabay.com/service/license-summary/"
+    },
+    {
+      "patrimonio": "TI-0006",
+      "filename": "TI-0006.jpg",
+      "pixabayId": 17768,
+      "contributor": "PublicDomainPictures",
+      "contributorUrl": "https://pixabay.com/users/PublicDomainPictures-14/",
+      "photoPageUrl": "https://pixabay.com/photos/blank-business-computer-desktop-17768/",
+      "licenseUrl": "https://pixabay.com/service/license-summary/"
+    },
+    {
+      "patrimonio": "TI-0007",
+      "filename": "TI-0007.jpg",
+      "pixabayId": 17894,
+      "contributor": "PublicDomainPictures",
+      "contributorUrl": "https://pixabay.com/users/PublicDomainPictures-14/",
+      "photoPageUrl": "https://pixabay.com/photos/blank-business-computer-desktop-17894/",
+      "licenseUrl": "https://pixabay.com/service/license-summary/"
+    },
+    {
+      "patrimonio": "TI-0008",
+      "filename": "TI-0008.jpg",
+      "pixabayId": 1827,
+      "contributor": "PublicDomainPictures",
+      "contributorUrl": "https://pixabay.com/users/PublicDomainPictures-14/",
+      "photoPageUrl": "https://pixabay.com/photos/high-definition-multimedia-1827/",
+      "licenseUrl": "https://pixabay.com/service/license-summary/"
+    },
+    {
+      "patrimonio": "TI-0009",
+      "filename": "TI-0009.jpg",
+      "pixabayId": 4498743,
+      "contributor": "tomekwalecki",
+      "contributorUrl": "https://pixabay.com/users/tomekwalecki-13027968/",
+      "photoPageUrl": "https://pixabay.com/photos/cable-wires-wire-technology-plug-4498743/",
+      "licenseUrl": "https://pixabay.com/service/license-summary/"
+    },
+    {
+      "patrimonio": "TI-0010",
+      "filename": "TI-0010.jpg",
+      "pixabayId": 494647,
+      "contributor": "blickpixel",
+      "contributorUrl": "https://pixabay.com/users/blickpixel-52945/",
+      "photoPageUrl": "https://pixabay.com/photos/network-cable-cable-patch-494647/",
+      "licenseUrl": "https://pixabay.com/service/license-summary/"
+    },
+    {
+      "patrimonio": "TI-0011",
+      "filename": "TI-0011.jpg",
+      "pixabayId": 1163880,
+      "contributor": "willsong",
+      "contributorUrl": "https://pixabay.com/users/willsong-1891844/",
+      "photoPageUrl": "https://pixabay.com/photos/video-conference-hd-material-1163880/",
+      "licenseUrl": "https://pixabay.com/service/license-summary/"
+    },
+    {
+      "patrimonio": "TI-0012",
+      "filename": "TI-0012.jpg",
+      "pixabayId": 1149767,
+      "contributor": "maxmann",
+      "contributorUrl": "https://pixabay.com/users/maxmann-665103/",
+      "photoPageUrl": "https://pixabay.com/photos/cameras-old-nostalgia-vintage-1149767/",
+      "licenseUrl": "https://pixabay.com/service/license-summary/"
+    }
+  ]
+}
