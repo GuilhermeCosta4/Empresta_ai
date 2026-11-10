@@ -63,23 +63,80 @@ async function download(url, destination) {
   await fs.writeFile(destination, bytes);
 }
 
-async function searchCandidates() {
-  const equipment = await readJson(equipmentPath);
-  const candidates = { source: "Pixabay", generatedAt: new Date().toISOString(), equipment: {} };
+async function createContactSheet(patrimonio, photos) {
+  const cellWidth = 320;
+  const imageHeight = 220;
+  const labelHeight = 40;
+  const columns = 3;
+  const rows = 2;
+  const width = cellWidth * columns;
+  const height = (imageHeight + labelHeight) * rows;
+  const composites = [];
+
+  for (const [index, photo] of photos.entries()) {
+    const left = (index % columns) * cellWidth;
+    const top = Math.floor(index / columns) * (imageHeight + labelHeight);
+    const thumbnail = await sharp(path.join(cacheRoot, patrimonio, `${photo.id}.jpg`))
+      .resize(cellWidth, imageHeight, { fit: "cover", position: "attention" })
+      .jpeg({ quality: 82 })
+      .toBuffer();
+    composites.push({ input: thumbnail, left, top });
+  }
+
+  const labels = photos
+    .map((photo, index) => {
+      const x = (index % columns) * cellWidth;
+      const y = Math.floor(index / columns) * (imageHeight + labelHeight) + imageHeight;
+      return `<rect x="${x}" y="${y}" width="${cellWidth}" height="${labelHeight}" fill="#111827"/><text x="${x + 16}" y="${y + 26}" fill="#f9fafb" font-size="20" font-family="Arial, sans-serif">Pixabay ID ${photo.id}</text>`;
+    })
+    .join("");
+
+  const labelLayer = Buffer.from(
+    `<svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">${labels}</svg>`,
+  );
+  composites.push({ input: labelLayer, left: 0, top: 0 });
+
+  await sharp({ create: { width, height, channels: 3, background: "#111827" } })
+    .composite(composites)
+    .jpeg({ quality: 88 })
+    .toFile(path.join(cacheRoot, patrimonio, "contact-sheet.jpg"));
+}
+
+async function searchCandidates(targetPatrimonio, rawPage = "1", alternateQuery = "") {
+  const allEquipment = await readJson(equipmentPath);
+  const equipment = targetPatrimonio
+    ? allEquipment.filter((item) => item.patrimonio === targetPatrimonio)
+    : allEquipment;
+  if (equipment.length === 0) throw new Error(`Patrimônio desconhecido: ${targetPatrimonio}.`);
+
+  const page = Number(rawPage);
+  if (!Number.isInteger(page) || page < 1) throw new Error("A página da busca deve ser um inteiro positivo.");
+
+  let candidates;
+  try {
+    candidates = await readJson(candidatesPath);
+  } catch {
+    candidates = { source: "Pixabay", generatedAt: null, queries: {}, equipment: {} };
+  }
+  candidates.queries ??= {};
+  candidates.generatedAt = new Date().toISOString();
 
   for (const item of equipment) {
+    const query = alternateQuery.trim() || item.busca;
     const result = await requestPixabay({
-      q: item.busca,
+      q: query,
       image_type: "photo",
       orientation: "horizontal",
       safesearch: "true",
       min_width: 800,
       min_height: 600,
       per_page: 12,
+      page,
     });
     const photos = (result.hits ?? []).slice(0, 6).map(toCandidate);
     if (photos.length === 0) throw new Error(`Nenhum candidato encontrado para ${item.patrimonio}.`);
 
+    candidates.queries[item.patrimonio] = query;
     candidates.equipment[item.patrimonio] = photos;
     for (const photo of photos) {
       await download(
@@ -87,6 +144,7 @@ async function searchCandidates() {
         path.join(cacheRoot, item.patrimonio, `${photo.id}.jpg`),
       );
     }
+    await createContactSheet(item.patrimonio, photos);
     console.log(`${item.patrimonio}: ${photos.length} candidatos preparados.`);
   }
 
@@ -197,7 +255,7 @@ async function finalizeImages() {
 
 function printHelp() {
   console.log(`Uso:
-  npm run images:workflow -- buscar
+  npm run images:workflow -- buscar [patrimonio] [pagina] [consulta alternativa]
   npm run images:workflow -- rejeitar <patrimonio> <pixabay-id> <motivo>
   npm run images:workflow -- aprovar <patrimonio> <pixabay-id>
   npm run images:workflow -- finalizar`);
@@ -206,7 +264,7 @@ function printHelp() {
 const [command, patrimonio, id, ...rest] = process.argv.slice(2);
 
 try {
-  if (command === "buscar") await searchCandidates();
+  if (command === "buscar") await searchCandidates(patrimonio, id, rest.join(" "));
   else if (command === "rejeitar") await rejectCandidate(patrimonio, id, rest);
   else if (command === "aprovar") await approveCandidate(patrimonio, id);
   else if (command === "finalizar") await finalizeImages();
