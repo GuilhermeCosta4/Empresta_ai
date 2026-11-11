@@ -1,0 +1,108 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum MembershipRole {
+  colaborador
+  operacoes
+  admin
+
+  @@map("membership_role")
+}
+
+model LoginRateLimit {
+  key       String   @id
+  expiresAt DateTime @map("expires_at") @db.Timestamptz(3)
+  attempts  Int
+
+  @@index([expiresAt])
+  @@map("login_rate_limits")
+}
+
+model Tenant {
+  id          String       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  slug        String       @unique
+  name        String
+  memberships Membership[]
+  equipment   Equipment[]
+  loans       Loan[]
+  auditEvents AuditEvent[]
+
+  @@map("tenants")
+}
+
+model Membership {
+  id          String         @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId    String         @map("tenant_id") @db.Uuid
+  userId      String         @map("user_id") @db.Uuid
+  role        MembershipRole
+  tenant      Tenant         @relation(fields: [tenantId], references: [id], onDelete: Restrict, onUpdate: Restrict)
+  loans       Loan[]         @relation("Borrower")
+  returns     Loan[]         @relation("ReturnActor")
+  auditEvents AuditEvent[]
+
+  @@unique([tenantId, id])
+  @@unique([tenantId, userId])
+  @@index([userId])
+  @@map("memberships")
+}
+
+model Equipment {
+  id            String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId      String  @map("tenant_id") @db.Uuid
+  assetTag      String  @map("asset_tag")
+  name          String
+  category      String
+  details       String?
+  inMaintenance Boolean @default(false) @map("in_maintenance")
+  imagePath     String  @map("image_path")
+  tenant        Tenant  @relation(fields: [tenantId], references: [id], onDelete: Restrict, onUpdate: Restrict)
+  loans         Loan[]
+
+  @@unique([tenantId, id])
+  @@unique([tenantId, assetTag])
+  @@map("equipment")
+}
+
+model Loan {
+  id                     String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId               String      @map("tenant_id") @db.Uuid
+  equipmentId            String      @map("equipment_id") @db.Uuid
+  borrowerMembershipId   String      @map("borrower_membership_id") @db.Uuid
+  startedAt              DateTime    @default(now()) @map("started_at") @db.Timestamptz(3)
+  dueAt                  DateTime    @map("due_at") @db.Timestamptz(3)
+  returnedAt             DateTime?   @map("returned_at") @db.Timestamptz(3)
+  returnedByMembershipId String?     @map("returned_by_membership_id") @db.Uuid
+  tenant                 Tenant      @relation(fields: [tenantId], references: [id], onDelete: Restrict, onUpdate: Restrict)
+  equipment              Equipment   @relation(fields: [tenantId, equipmentId], references: [tenantId, id], onDelete: Restrict, onUpdate: Restrict)
+  borrower               Membership  @relation("Borrower", fields: [tenantId, borrowerMembershipId], references: [tenantId, id], onDelete: Restrict, onUpdate: Restrict)
+  returnedBy             Membership? @relation("ReturnActor", fields: [tenantId, returnedByMembershipId], references: [tenantId, id], onDelete: Restrict, onUpdate: Restrict)
+
+  @@index([tenantId, equipmentId])
+  @@index([tenantId, borrowerMembershipId, returnedAt])
+  @@index([tenantId, returnedByMembershipId])
+  @@map("loans")
+}
+
+model AuditEvent {
+  id                String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId          String     @map("tenant_id") @db.Uuid
+  actorMembershipId String     @map("actor_membership_id") @db.Uuid
+  action            String
+  resourceType      String     @map("resource_type")
+  resourceId        String     @map("resource_id")
+  metadata          Json       @default("{}")
+  createdAt         DateTime   @default(now()) @map("created_at") @db.Timestamptz(3)
+  tenant            Tenant     @relation(fields: [tenantId], references: [id], onDelete: Restrict, onUpdate: Restrict)
+  actor             Membership @relation(fields: [tenantId, actorMembershipId], references: [tenantId, id], onDelete: Restrict, onUpdate: Restrict)
+
+  @@index([tenantId, actorMembershipId])
+  @@index([tenantId, createdAt])
+  @@map("audit_events")
+}

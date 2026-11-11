@@ -1,6 +1,6 @@
 # Spec: Schema inicial de persistência
 
-**Status:** Rascunho. Ainda não possui `plano.md` nem `tarefas.md` e não está autorizada para implementação.
+**Status:** Pronta para uso local. O verificador independente confirmou os cinco critérios de aceite e os checks. Aplicação no Supabase do deploy pendente.
 
 ## Objetivo
 
@@ -23,7 +23,7 @@ Definir as tabelas necessárias para persistir tenants, memberships, equipamento
 |---|---|
 | `tenants` | Identificador, nome e slug único; o tenant inicial é `suporte_ti`. |
 | `memberships` | Tenant, `auth.users.id` externo e papel; combinação tenant/usuário única. |
-| `equipment` | Tenant, etiqueta patrimonial, nome, categoria, detalhes opcionais e indicador de manutenção; etiqueta única por tenant. |
+| `equipment` | Tenant, etiqueta patrimonial, nome, categoria, detalhes opcionais, indicador de manutenção e caminho da foto no Storage. Etiqueta única por tenant. |
 | `loans` | Tenant, equipamento, membership responsável, datas de retirada, vencimento e devolução, além da membership que registrou a devolução. |
 | `audit_events` | Tenant, ator, ação, tipo e ID do recurso, metadados JSON e data; append-only. |
 
@@ -35,7 +35,7 @@ As referências entre equipamentos, empréstimos e memberships devem impedir ví
 - As policies de tabelas de domínio comparam `tenant_id` ao contexto de tenant definido pelo servidor dentro da transação.
 - O servidor aplica autorização primária por meio dos procedimentos do ADR-001; RLS é defesa em profundidade para erros de filtro.
 - Memberships só podem ser consultadas por seu usuário e pelo papel de Operações/admin do mesmo tenant.
-- Colaboradores só podem ler seus empréstimos; Operações/admin podem operar os registros do tenant.
+- A policy de leitura limita colaboradores aos próprios empréstimos. Operações/admin podem ler os registros do tenant e operá-los pelos procedimentos autorizados no servidor.
 - Auditoria permite inserção, mas não atualização nem remoção.
 - A role de runtime do Prisma deve ser considerada explicitamente; uma role com `BYPASSRLS` não é restringida por policies.
 
@@ -54,3 +54,5 @@ As referências entre equipamentos, empréstimos e memberships devem impedir ví
 - **CA-03:** RLS e policies estão presentes em migration versionada, sem depender de ajuste manual no painel.
 - **CA-04:** Testes locais demonstram isolamento entre tenants e comportamento append-only da auditoria.
 - **CA-05:** Nenhum segredo ou conexão remota é usado na geração ou teste local.
+
+A [spec de dados iniciais](../dados-iniciais/spec.md) define a lista de equipamentos e o caminho estável da foto por patrimônio. A autenticação e a carga serão verificadas naquela spec.

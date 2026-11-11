@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
+import { connection } from "next/server";
 import "./globals.css";
 
 const openSans = Open_Sans({
@@ -13,11 +14,12 @@ export const metadata: Metadata = {
   description: "Empréstimo de equipamentos internos",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  await connection();
   return (
     <html className={openSans.variable} lang="pt-BR">
       <body>{children}</body>

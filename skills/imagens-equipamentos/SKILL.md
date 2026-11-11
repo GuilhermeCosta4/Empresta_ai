@@ -1,6 +1,6 @@
 ---
 name: imagens-equipamentos
-description: Busca, revisa, padroniza e registra imagens de equipamentos obtidas pela API do Pixabay. Use ao preparar fotos do catálogo, popular imagens de equipamentos ou validar dimensões, créditos e duplicidade. Não use para logos, imagens da landing page, ilustrações ou upload ao Supabase.
+description: Busca, revisa, padroniza e registra fotos de equipamentos do catálogo obtidas pela API do Pixabay, garantindo revisão visual, dimensões, créditos e ausência de duplicidade.
 ---
 
 # Imagens de equipamentos

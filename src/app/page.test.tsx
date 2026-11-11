@@ -2,11 +2,11 @@ import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
 
-import HomePage from "./page";
+import DemoPage from "./demo/page";
 
 async function openCatalog() {
   const user = userEvent.setup();
-  render(<HomePage />);
+  render(<DemoPage />);
 
   await user.type(screen.getByLabelText("E-mail"), "pessoa@empresa.com");
   await user.type(screen.getByLabelText("Senha"), "senha-local");

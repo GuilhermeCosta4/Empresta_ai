@@ -8,11 +8,12 @@ Este arquivo lista os checks mínimos que devem ser usados para validar que o re
 
 ### 0. Aplicação
 
-Com Node.js 20.9 ou superior e dependências instaladas, executar na raiz:
+Com a versão de Node.js declarada em `package.json` e dependências instaladas, executar na raiz:
 
 - `npm run lint` — ESLint.
 - `npm run typecheck` — verificação TypeScript sem emissão.
 - `npm run test:unit` — Vitest e Testing Library para os critérios funcionais do catálogo.
+- `npm run test:integration` - PostgreSQL e Supabase Auth descartáveis em Docker para mudanças de persistência ou autenticação.
 - `npm run test:e2e` — Playwright em Chromium para critérios de interface desktop.
 - `npm run build` — build Next.js de produção.
 

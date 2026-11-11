@@ -2,8 +2,11 @@
   "name": "emprest-ai",
   "version": "0.1.0",
   "private": true,
+  "prisma": {
+    "seed": "node prisma/seed.mjs"
+  },
   "engines": {
-    "node": ">=20.9.0"
+    "node": "24.x"
   },
   "scripts": {
     "dev": "next dev",
@@ -14,18 +17,35 @@
     "test": "npm run test:unit && npm run test:e2e",
     "test:unit": "vitest run",
     "test:e2e": "playwright test",
+    "db:generate": "node prisma/generate-client.mjs",
+    "db:seed": "node prisma/seed.mjs",
+    "prebuild": "npm run db:generate",
+    "pretypecheck": "npm run db:generate",
+    "test:integration": "npm run db:generate && vitest run --config vitest.integration.config.mts",
     "images:workflow": "node --env-file=.env.local skills/imagens-equipamentos/scripts/preparar-imagens.mjs",
     "images:validate": "node skills/imagens-equipamentos/scripts/validar-imagens.mjs"
   },
   "dependencies": {
+    "@hookform/resolvers": "7.0.5",
     "@phosphor-icons/web": "^2.1.2",
+    "@prisma/client": "6.19.3",
+    "@supabase/ssr": "0.12.7",
+    "@supabase/supabase-js": "2.119.0",
+    "@tanstack/react-query": "5.107.1",
+    "@trpc/client": "11.28.0",
+    "@trpc/react-query": "11.28.0",
+    "@trpc/server": "11.28.0",
     "next": "16.3.6",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "react-hook-form": "7.91.0",
+    "superjson": "2.2.6",
+    "zod": "4.6.7"
   },
   "devDependencies": {
     "@playwright/test": "^1.65.0",
     "@tailwindcss/postcss": "4.3.3",
+    "@testcontainers/postgresql": "12.2.1",
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.3",
     "@testing-library/user-event": "^14.6.8",
@@ -36,8 +56,10 @@
     "eslint-config-next": "16.3.6",
     "jsdom": "^31.0.0",
     "postcss": "8.5.23",
+    "prisma": "6.19.3",
     "sharp": "^0.35.5",
     "tailwindcss": "4.3.3",
+    "testcontainers": "12.2.1",
     "typescript": "6.0.3",
     "vitest": "^5.1.0"
   }

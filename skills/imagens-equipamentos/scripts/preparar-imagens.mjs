@@ -225,8 +225,12 @@ async function fetchPhotoById(id) {
   return toCandidate(hit);
 }
 
-async function finalizeImages() {
+async function finalizeImages(targetPatrimonio) {
   const equipment = await readJson(equipmentPath);
+  if (targetPatrimonio && !equipment.some((item) => item.patrimonio === targetPatrimonio)) {
+    throw new Error("Patrimônio desconhecido.");
+  }
+  const previous = targetPatrimonio ? await readJson(manifestPath) : null;
   const review = await readJson(reviewPath);
   const missing = equipment.filter((item) => !review.aprovadas[item.patrimonio]);
   if (missing.length > 0) {
@@ -236,11 +240,18 @@ async function finalizeImages() {
   await fs.mkdir(outputRoot, { recursive: true });
   const images = [];
   for (const item of equipment) {
+    if (targetPatrimonio && item.patrimonio !== targetPatrimonio) {
+      const existing = previous.images.find((image) => image.patrimonio === item.patrimonio);
+      if (!existing) throw new Error("Manifesto anterior incompleto.");
+      images.push(existing);
+      continue;
+    }
     const approved = review.aprovadas[item.patrimonio];
     const photo = await fetchPhotoById(approved.pixabayId);
     const response = await fetch(photo.imageUrl);
-    if (!response.ok) throw new Error(`Falha ao baixar a foto aprovada de ${item.patrimonio}.`);
-    const input = Buffer.from(await response.arrayBuffer());
+    if (!response.ok && !targetPatrimonio) throw new Error(`Falha ao baixar a foto aprovada de ${item.patrimonio}.`);
+    const input = response.ok ? Buffer.from(await response.arrayBuffer())
+      : await fs.readFile(path.join(cacheRoot, item.patrimonio, `${photo.id}.jpg`));
     const filename = `${item.patrimonio}.jpg`;
 
     await sharp(input)
@@ -288,7 +299,7 @@ try {
   else if (command === "rejeitar") await rejectCandidate(patrimonio, id, rest);
   else if (command === "reconsiderar") await reconsiderCandidate(patrimonio, id, rest);
   else if (command === "aprovar") await approveCandidate(patrimonio, id);
-  else if (command === "finalizar") await finalizeImages();
+  else if (command === "finalizar") await finalizeImages(patrimonio);
   else printHelp();
 } catch (error) {
   console.error(error instanceof Error ? error.message : "Falha inesperada no preparo de imagens.");

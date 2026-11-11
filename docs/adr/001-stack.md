@@ -163,6 +163,10 @@ Rate limit não será mantido em memória, pois instâncias serverless não comp
 | Hook de pré-commit | lint-staged e husky, somente lint e formatação |
 | Convenção de commit | Nenhuma automação; mensagem escrita pela pessoa |
 
+### Processamento local das fotos do catálogo
+
+Sharp é autorizado como dependência de desenvolvimento para os scripts da skill `imagens-equipamentos`. O uso aprovado é gerar JPEGs de 800 × 600 e conferir as dimensões dos arquivos locais. A aplicação usa as imagens prontas. A escolha reaproveita o fluxo já validado e mantém o processamento fora do código da aplicação. A alternativa avaliada foi substituir o Sharp por outro processo local de geração e validação.
+
 ## Alternativas descartadas
 
 | Alternativa | Motivo do descarte |

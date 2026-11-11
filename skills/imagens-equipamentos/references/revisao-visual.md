@@ -27,6 +27,10 @@ Os scripts garantem:
 
 ## Créditos
 
+Exceção aprovada pelo responsável para TI-0012: a foto Pixabay 3545828 mostra a câmera compacta com marca e texto visíveis. A aprovação foi dada após apresentação da foto. O histórico da rejeição e sua reconsideração ficam em `assets/revisao.json`.
+
+Para substituir somente um item, use `npm run images:workflow -- finalizar TI-0012`. O comando conserva os demais registros do manifesto. Se o download estiver limitado, usa o candidato previamente baixado para revisão.
+
 O manifesto deve manter, para cada foto:
 
 - ID do Pixabay;

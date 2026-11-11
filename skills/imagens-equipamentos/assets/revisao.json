@@ -43,10 +43,10 @@
       "photoPageUrl": "https://pixabay.com/photos/surface-book-microsoft-closed-3659997/"
     },
     "TI-0012": {
-      "pixabayId": 1149767,
-      "contributor": "maxmann",
-      "contributorUrl": "https://pixabay.com/users/maxmann-665103/",
-      "photoPageUrl": "https://pixabay.com/photos/cameras-old-nostalgia-vintage-1149767/"
+      "pixabayId": 3545828,
+      "contributor": "HOerwin56",
+      "contributorUrl": "https://pixabay.com/users/HOerwin56-2108907/",
+      "photoPageUrl": "https://pixabay.com/photos/camera-compact-digital-3545828/"
     },
     "TI-0001": {
       "pixabayId": 5720323,
@@ -461,11 +461,6 @@
     },
     {
       "patrimonio": "TI-0012",
-      "pixabayId": 272263,
-      "motivo": "marca legivel"
-    },
-    {
-      "patrimonio": "TI-0012",
       "pixabayId": 5028354,
       "motivo": "marca e texto legiveis"
     },
@@ -483,11 +478,6 @@
       "patrimonio": "TI-0012",
       "pixabayId": 1077853,
       "motivo": "marca legivel"
-    },
-    {
-      "patrimonio": "TI-0012",
-      "pixabayId": 8322154,
-      "motivo": "pessoas visiveis"
     },
     {
       "patrimonio": "TI-0006",
@@ -573,21 +563,6 @@
       "patrimonio": "TI-0011",
       "pixabayId": 4221401,
       "motivo": "pessoa em tela"
-    },
-    {
-      "patrimonio": "TI-0012",
-      "pixabayId": 9202056,
-      "motivo": "pessoa visivel"
-    },
-    {
-      "patrimonio": "TI-0012",
-      "pixabayId": 5309390,
-      "motivo": "marca legivel"
-    },
-    {
-      "patrimonio": "TI-0012",
-      "pixabayId": 2757546,
-      "motivo": "marca legivel"
     },
     {
       "patrimonio": "TI-0012",
@@ -851,11 +826,6 @@
     },
     {
       "patrimonio": "TI-0012",
-      "pixabayId": 551287,
-      "motivo": "texto legivel no equipamento"
-    },
-    {
-      "patrimonio": "TI-0012",
       "pixabayId": 737114,
       "motivo": "equipamento diferente do solicitado"
     },
@@ -866,11 +836,6 @@
     },
     {
       "patrimonio": "TI-0012",
-      "pixabayId": 2364849,
-      "motivo": "pessoa e marca legivel"
-    },
-    {
-      "patrimonio": "TI-0012",
       "pixabayId": 407168,
       "motivo": "pessoa visivel"
     },
@@ -878,6 +843,176 @@
       "patrimonio": "TI-0012",
       "pixabayId": 4883881,
       "motivo": "pessoa visivel"
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 9202056,
+      "motivo": "Pessoa identificável, marca ou texto legível, ou equipamento que não corresponde a uma câmera compacta."
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 5309390,
+      "motivo": "Pessoa identificável, marca ou texto legível, ou equipamento que não corresponde a uma câmera compacta."
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 2757546,
+      "motivo": "Pessoa identificável, marca ou texto legível, ou equipamento que não corresponde a uma câmera compacta."
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 4666771,
+      "motivo": "Pessoa identificável, marca ou texto legível, ou equipamento que não corresponde a uma câmera compacta."
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 7170605,
+      "motivo": "Pessoa identificável, marca ou texto legível, ou equipamento que não corresponde a uma câmera compacta."
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 2364849,
+      "motivo": "Pessoa identificável, marca ou texto legível, ou equipamento que não corresponde a uma câmera compacta."
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 3990861,
+      "motivo": "Pessoa identificável, marca ou texto legível, ou equipamento que não corresponde a uma câmera compacta."
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 272263,
+      "motivo": "Pessoa identificável, marca ou texto legível, ou equipamento que não corresponde a uma câmera compacta."
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 8322154,
+      "motivo": "Pessoa identificável, marca ou texto legível, ou equipamento que não corresponde a uma câmera compacta."
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 6466096,
+      "motivo": "Pessoa identificável, marca ou texto legível, ou equipamento que não corresponde a uma câmera compacta."
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 6707438,
+      "motivo": "Texto ou marca legível no corpo, ou tela exibindo conteúdo."
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 2178701,
+      "motivo": "Texto ou marca legível no corpo, ou tela exibindo conteúdo."
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 551287,
+      "motivo": "Texto ou marca legível no corpo, ou tela exibindo conteúdo."
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 4535497,
+      "motivo": "Texto ou marca legível no corpo, ou tela exibindo conteúdo."
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 2115787,
+      "motivo": "Texto ou marca legível no corpo, ou tela exibindo conteúdo."
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 4198212,
+      "motivo": "Texto ou marca legível no corpo, ou tela exibindo conteúdo."
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 3247925,
+      "motivo": "Marca ou texto legível, smartphone em vez de câmera compacta, ou equipamento inadequado."
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 5416893,
+      "motivo": "Marca ou texto legível, smartphone em vez de câmera compacta, ou equipamento inadequado."
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 5416894,
+      "motivo": "Marca ou texto legível, smartphone em vez de câmera compacta, ou equipamento inadequado."
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 6655520,
+      "motivo": "Marca ou texto legível, smartphone em vez de câmera compacta, ou equipamento inadequado."
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 7169689,
+      "motivo": "Marca ou texto legível, smartphone em vez de câmera compacta, ou equipamento inadequado."
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 5213430,
+      "motivo": "Marca ou texto legível, smartphone em vez de câmera compacta, ou equipamento inadequado."
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 7825470,
+      "motivo": "Marca, modelo ou texto legível no equipamento."
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 4532567,
+      "motivo": "Marca, modelo ou texto legível no equipamento."
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 4906318,
+      "motivo": "Marca, modelo ou texto legível no equipamento."
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 5114199,
+      "motivo": "Marca, modelo ou texto legível no equipamento."
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 7170604,
+      "motivo": "Marca, modelo ou texto legível no equipamento."
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 1283953,
+      "motivo": "Marca, modelo ou texto legível no equipamento."
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 5128421,
+      "motivo": "Modelo inadequado, pessoa identificável ou texto legível."
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 1442895,
+      "motivo": "Modelo inadequado, pessoa identificável ou texto legível."
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 2034007,
+      "motivo": "Modelo inadequado, pessoa identificável ou texto legível."
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 1500975,
+      "motivo": "Modelo inadequado, pessoa identificável ou texto legível."
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 7825467,
+      "motivo": "Modelo inadequado, pessoa identificável ou texto legível."
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 6818029,
+      "motivo": "Modelo inadequado, pessoa identificável ou texto legível."
     }
   ],
   "reconsideradas": [
@@ -886,6 +1021,12 @@
       "pixabayId": 1163880,
       "motivo": "marca visivel na lente",
       "justificativa": "o selo permanece ilegivel na resolucao final e nao identifica uma marca"
+    },
+    {
+      "patrimonio": "TI-0012",
+      "pixabayId": 3545828,
+      "motivo": "Pessoa identificável, marca ou texto legível, ou equipamento que não corresponde a uma câmera compacta.",
+      "justificativa": "Responsável revisou visualmente e aprovou exceção específica para marca e texto visíveis na câmera compacta."
     }
   ]
 }

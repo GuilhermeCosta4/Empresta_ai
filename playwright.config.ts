@@ -10,8 +10,9 @@ export default defineConfig({
   },
   webServer: {
     command: "npm run dev",
+    env: { NEXT_PUBLIC_SUPABASE_URL: "https://emprestai-test.supabase.co" },
     url: "http://localhost:3000",
-    reuseExistingServer: true,
+    reuseExistingServer: false,
     timeout: 180_000,
   },
   projects: [

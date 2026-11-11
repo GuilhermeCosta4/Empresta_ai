@@ -2,7 +2,7 @@
 
 ## O que é o projeto
 
-Este repositório contém a documentação de produto e arquitetura e um protótipo demonstrativo de login e catálogo para o sistema de empréstimo de equipamentos internos.
+Este repositório contém a documentação de produto e arquitetura, login com Supabase Auth validado localmente e um protótipo separado de catálogo para o sistema de empréstimo de equipamentos internos.
 
 O que pode ser verificado hoje neste repositório:
 - existe um documento de negócio em `docs/PRD.md`;
@@ -73,7 +73,7 @@ Os comandos abaixo foram executados neste repositório e podem ser citados com s
 - `npm test` — executa as duas suítes em sequência.
 - `npm run build` — compila o scaffold Next.js para produção.
 
-Os comandos da aplicação acima passaram no protótipo atual. Para usar npm, Node.js 20.9 ou superior precisa estar disponível; o Chromium do Playwright deve ser instalado com `npx playwright install chromium` no ambiente local.
+Os comandos da aplicação usam Node.js 24. O Chromium do Playwright deve ser instalado com `npx playwright install chromium` no ambiente local. Os testes de integração usam Docker.
 
 ## Mapa de diretórios
 
@@ -152,9 +152,9 @@ Os checks executáveis verificados são:
 
 ## Estado atual do projeto
 
-O estado verificado inclui documentação e uma demonstração front-end desktop com entrada visual e catálogo. Busca, filtros e pedidos demonstrativos funcionam localmente e possuem testes por critério de aceite. Não há autenticação real, backend ou persistência de empréstimos.
+O login real usa a rota raiz e protege `/inicio` por sessão e membership. Essa área consulta o catálogo do tenant por tRPC. A integração local usa PostgreSQL e Supabase Auth descartáveis. O catálogo em `/demo` mantém busca, filtros e pedidos demonstrativos com testes por critério de aceite. A solicitação real de empréstimos ainda está pendente.
 
-O protótipo de entrada e catálogo segue `docs/specs/catalogo/`.
+A demonstração segue `docs/specs/catalogo/`. O login e a carga inicial seguem `docs/specs/dados-iniciais/`. A consulta autenticada segue `docs/specs/catalogo-autenticado/`.
 
 Este arquivo não inventa implementação, comando ou arquitetura que não possam ser verificados neste repositório hoje.
 
